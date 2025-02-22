@@ -1,6 +1,7 @@
 # BiZ9 Utility-JS
 
 **The BiZ9-Utility-JS Package**
+Strict JavaScript Required. No modules.
 
 ## Installation
 Use the [npm](https://npm.com) installer to install.
