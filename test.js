@@ -1,9 +1,9 @@
-import series from 'async-series';
-import { w,w_error,get_test_item,error_append,get_id,get_guid  } from './';
+const series = require('async-series');
+const moment = require('moment');
+const { w,w_error,get_test_item,error_append,get_id,get_guid,get_title_url,get_date_time_str,get_date_str, get_date_time_pretty} = require('.');
 
 /* --- TEST CONFIG START --- */
 /* --- TEST DATA CONFIG END --- */
-
 
 describe("connect", () => {
     it("_connect", () => {
@@ -12,6 +12,36 @@ describe("connect", () => {
                 console.log('CONNECT-START');
                 call()
             },
+            function(call) {
+                console.log('GET-DATE-TIME-PRETTY-START');
+                let date_time = new moment().toISOString();
+                console.log(get_date_time_pretty(date_time));
+                console.log('GET-DATE-TIME-PRETTY-SUCCESS');
+                call()
+            },
+            function(call) {
+                console.log('GET-DATE-TIME-STR-START');
+                let date_time = new moment().toISOString();
+                console.log(get_date_time_str(date_time));
+                console.log('GET-DATE-TIME-STR-SUCCESS');
+                call()
+            },
+            function(call) {
+                console.log('GET-DATE-STR-START');
+                let date = new moment().toISOString();
+                console.log(get_date_str(date));
+                console.log('GET-DATE-STR-SUCCESS');
+                call()
+            },
+            function(call) {
+                console.log('GET-TITLE-URL-START');
+                let title = 'my cool title';
+                console.log(get_title_url(title));
+                console.log('GET-TITLE-URL-SUCCESS');
+                //call()
+            },
+
+
             function(call) {
                 console.log('W-START');
                 w('w_title','w_body');
